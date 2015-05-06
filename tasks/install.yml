@@ -1,0 +1,24 @@
+---
+- name: Discover the EC2 instance region
+  # Reversing the string is hacky but readable and efficient enough...
+  shell: "ec2metadata --availability-zone | rev | cut -c 2- | rev"
+  register: ec2_region
+
+- name: Configure /tmp/awslogs.conf
+  template:
+    dest: /tmp/awslogs.conf
+    group: root
+    mode: 0600
+    owner: root
+    src: awslogs.conf.j2
+
+- name: Download the awslogs-agent-setup.py script
+  get_url:
+    dest: /tmp/awslogs-agent-setup.py
+    group: root
+    owner: root
+    mode: 0600
+    url: https://s3.amazonaws.com/aws-cloudwatch/downloads/latest/awslogs-agent-setup.py
+
+- name: Install the AWS CloudWatch Logs daemon
+  shell: python /tmp/awslogs-agent-setup.py -n -r {{ ec2_region.stdout }} -c /tmp/awslogs.conf
