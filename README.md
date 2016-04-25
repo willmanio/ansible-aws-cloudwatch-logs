@@ -18,8 +18,8 @@ Include the `aws-cloudwatch-logs` role in your playbook yml like this:
           format: "%b %d %H:%M:%S"
           group_name: my-cool-log
 
-## License
-MIT
-
 ## Author
 Christian Willman <github@willman.io>
+
+## License
+MIT
