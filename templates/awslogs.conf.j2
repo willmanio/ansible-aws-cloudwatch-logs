@@ -121,5 +121,5 @@ state_file = /var/awslogs/state/agent-state
 datetime_format = {{ log.format }}
 file = {{ log.file }}
 log_group_name = {{ log.group_name }}
-log_stream_name = {instance_id}
+log_stream_name = {{ log.stream_name | default('{instance_id}') }}
 {% endfor %}
