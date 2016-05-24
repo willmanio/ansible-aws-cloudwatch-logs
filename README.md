@@ -17,9 +17,15 @@ Include the `aws-cloudwatch-logs` role in your playbook yml like this:
         - file: /var/log/my_cool_log
           format: "%b %d %H:%M:%S"
           group_name: my-cool-log
+          stream_name: "{{ ansible_hostname }}"
 
 ## Author
 Christian Willman <github@willman.io>
+
+## Changes
+Paul De Audney <pdeaudney@gmail.com>
+- Add ansible-galaxy meta.yml
+- Optionally configure `stream_name` or default to `{instance_id}` in the template
 
 ## License
 MIT
