@@ -1,6 +1,4 @@
 ---
-dependencies: []
-
 galaxy_info:
   author: Christian Willman
   description: An Ansible role for forwarding log files to CloudWatch.
@@ -11,7 +9,8 @@ galaxy_info:
   - name: Ubuntu
     versions:
     - trusty
-galaxy_tags:
-  - cloudwatch
-  - aws
-  - logging
+  galaxy_tags:
+    - cloudwatch
+    - aws
+    - logging
+dependencies: []
