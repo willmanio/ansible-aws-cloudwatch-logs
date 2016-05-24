@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  author: Christian Willman
+  description: An Ansible role for forwarding log files to CloudWatch.
+  company: Christian Willman
+  license: MIT
+  min_ansible_version: 1.9
+  platforms:
+  - name: Ubuntu
+    versions:
+    - trusty
+  galaxy_tags:
+    - cloudwatch
+    - aws
+    - logging
+dependencies: []
