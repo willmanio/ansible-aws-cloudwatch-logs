@@ -21,4 +21,4 @@
     url: https://s3.amazonaws.com/aws-cloudwatch/downloads/latest/awslogs-agent-setup.py
 
 - name: Install the AWS CloudWatch Logs daemon
-  shell: python /tmp/awslogs-agent-setup.py -n -r {{ ec2_region.stdout }} -c /tmp/awslogs.conf
+  shell: python /tmp/awslogs-agent-setup.py --non-interactive --region={{ ec2_region.stdout }} --configfile=/tmp/awslogs.conf
